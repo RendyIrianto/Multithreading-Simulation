@@ -3,12 +3,13 @@
 
 using namespace std;
 
-int main(){
+int main() {
 
     Elevator elevator(1);
     cout << elevator;
 
-    cout << elevator.getCurrentState() <<" \n";
+    cout << elevator.getCurrentState() << endl;
+
 
     return 0;
 } 

@@ -3,11 +3,11 @@
 
 class Building {
 public:
-
     Building();
 
 private:
-    
+    int numElevators;
+    int numFloors;
 
 };
 
