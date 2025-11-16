@@ -16,26 +16,26 @@ void Elevator:: run() {
 }
 
 std::ostream& operator<<(std::ostream& os, const Elevator& e) {
-    os << "Elevator " << e.id << " on floor " << e.currentFloor;
+    os << "Elevator " << e.id << " on floor " << e.currentFloor << std::endl;
     return os;
 }
 
 std::ostream& operator<<(std::ostream& os, const Elevator::State& s) {
     switch(s) {
         case Elevator::State::Idle: 
-            os << "Idle" << endl;
+            os << "Idle" << std::endl;
             break;
         case Elevator::State::MovingUp:
-            os << "Moving Up" << endl;
+            os << "Moving Up" << std::endl;
             break;
         case Elevator::State::MovingDown:
-            os << "Moving Down" << endl;
+            os << "Moving Down" << std::endl;
             break;
         case Elevator::State::DoorsOpen: 
-            os << "DoorsOpen" << endl;
+            os << "DoorsOpen" << std::endl;
             break;
         case Elevator::State::DoorsClosed:
-            os << "DoorsClosed" << endl;
+            os << "DoorsClosed" << std::endl;
             break;
     }
     return os;

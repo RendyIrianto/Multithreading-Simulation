@@ -1,13 +1,17 @@
 #ifndef BUILDING_H
 #define BUILDING_H
 
+#include "elevator.hpp"
+#include <vector>
+
 class Building {
 public:
-    Building();
+    Building(int numFloors, int numElevators);
 
 private:
     int numElevators;
     int numFloors;
+    std::vector<int> vec;
 
 };
 
