@@ -39,6 +39,8 @@ private:
     int id;
     int currentFloor;
     State currentState;
+    std::mutex m;        
+    std::queue<int> requests;
 
 };
 

@@ -11,7 +11,7 @@ public:
 private:
     int numElevators;
     int numFloors;
-    std::vector<int> vec;
+    std::vector<Elevator> vec;
 
 };
 
