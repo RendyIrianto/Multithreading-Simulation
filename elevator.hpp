@@ -1,6 +1,10 @@
 #ifndef ELEVATOR_H
 #define ELEVATOR_H
 
+#include <thread>
+#include <mutex>
+#include <queue>
+#include <chrono>
 #include <iostream>
 #include <string> 
 
@@ -25,8 +29,8 @@ public:
     void setCurrentState(State s);
     
     //Elevator functions
-    void moveUp();
-    void moveDown();
+    void moveTo(int t);
+    void addRequest(int req);
     
     //Elevator thread functions
     void run();

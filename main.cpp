@@ -8,18 +8,21 @@ using namespace std;
 
 int main() {
 
-    int floors, elevators;
-    cout << "Number of floors: ";
-    cin >> floors;
-    cout << "Number of elevators: ";
-    cin >> elevators;
+    int request;
+    
+    cout << "Enter floor: ";
+    cin >> request;
 
-    Building building(floors, elevators);
+    Elevator e1(1);
+    e1.addRequest(request);
+    thread t(&Elevator::run, &e1);
+    t.join();
+    
 
-    Elevator elevator(1);
-    cout << elevator;
 
-    cout << elevator.getCurrentState() << endl;
+    
+    
+
 
 
     return 0;

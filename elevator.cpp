@@ -11,8 +11,40 @@ Elevator::State Elevator:: getCurrentState() const {
     return currentState;
 }
 
-void Elevator:: run() {
-    return;
+void Elevator::run() {
+    while (true) {
+        int target = -1;
+
+        {
+            std::lock_guard<std::mutex> lock(m);
+            if (!requests.empty()) {
+                target = requests.front();
+                requests.pop();
+            }
+        }
+
+        if (target == -1) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            continue;
+        }
+
+        moveTo(target); 
+    }
+}
+
+void Elevator::moveTo(int t) {
+    int move = (currentFloor < t ? 1 : -1);
+    while(currentFloor != t) {
+        currentFloor+=move;
+        std::cout << currentFloor << std::endl;
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+
+    }
+}
+
+void Elevator::addRequest(int floor) {
+    std::lock_guard<std::mutex> lock(m);
+    requests.push(floor);
 }
 
 std::ostream& operator<<(std::ostream& os, const Elevator& e) {
